@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/*=========================关于我们======================*/
+.aboutNav{ width:190px; float:left; overflow:hidden;margin-bottom:20px;}
+.aboutNav ul{ background:#fff; margin-top:20px; overflow:hidden;}
+.aboutNav li{ display:block; padding:0 15px; text-align:center; margin-top:-1px; font-size:16px; z-index:0; position:relative; overflow:hidden;}
+.aboutNav li a{ display:block; border-top:1px solid #ddd; line-height:50px;}
+.aboutNav li.now{ background:#ee2c00; z-index:1; position:relative;}
+.aboutNav li.now a{ color:#fff; border:none;}
+.aboutNav li a:hover{ text-decoration:none;}
+.aboutMain{ width:948px; float:left; min-height:330px; padding:5px 20px 20px; background:#fff; border:1px solid #ddd; margin:20px 0 20px 20px;}
+.aboutMain .title1{font-size:20px;width:100%;text-align: center;padding-top: 30px}
+.aboutMainT{ display:block; height:40px; line-height:40px; padding-left:20px; border-bottom:1px solid #ededed; font-size:18px;}
+
+/*公告*/
+.news{ display:block; padding:10px 10px 0;}
+.news li{ display:block; padding:5px 10px 26px 10px; border-bottom:1px dashed #dcdcdc;}
+.news li img{ width:210px; height:140px; float:left; margin-right:20px;margin-top:10px;}
+.news li .text{ display:block; line-height:24px;}
+.news li .text h2{ display:block; font-size:18px; height:40px; line-height:40px; overflow:hidden;}
+.news li .text .jj{ height:72px; overflow:hidden;}
+.news li .text .item{ padding-top:10px; color:#aaa;padding-bottom:12px;}
+.news li .text .item span{ padding-left:25px;}
+.news li .text .item .time{ float:left; background:url(../images/time.png) no-repeat 0 4px;}
+.news li .text .item .number{ float:right; background:url(../images/number.png) no-repeat 0 6px;}
+
+/*文字类*/
+.aboutM{ padding:20px; line-height:26px; color:#777;font-size: 14px!important;line-height: 30px;}
+.aboutM .aboutMT{ font-size:16px; color:#ee2c00; display:block; margin-top:30px;}
+.aboutM img{  margin-bottom:30px;display: block;margin:0 auto}
+.aboutM .fzlc{ background:url(../images/lc.png) repeat-y;}
+.aboutM .fzlc li{ display:block; padding-left:30px; line-height:36px;}
+.aboutM .fzlc li span{ color:#ee2c00; padding-right:10px;}
+.aboutM .articleT{ font-size:20px; text-align:center; color:#250b0c;}
+.articleM p,.articleM img{ margin-top:15px; margin-bottom:0;}
+.aboutM .time{ display:block; border-bottom:1px solid #e7e7e7; text-align:center; line-height:40px;}
+#zpgw .item{ padding-bottom:30px;}
+.aboutM .zpgwT{ display:block; font-size:16px; color:#ee2c00; padding-bottom:5px;}
+.aboutM .zpgwT span{ width:26px; height:20px; line-height:20px; font-size:12px; display:inline-block; padding-right:4px; color:#fff; margin-right:10px; text-align:center; vertical-align:middle; background:url(../images/ico2.png) no-repeat;}
+.aboutM h2{font-size:17px;}
+.hzhb{ display:inline-block; padding-bottom:20px;}
+.hzhb li{ width:185px; height:70px; margin-right:10px; margin-top:20px; border:1px solid #eee; float:left;}
+.hzhb li img{ height:70px; width:185px;}
+.hzhb li:hover{ border-color:#f60;}
+
+
+/*公告*/
+.artical {
+	height:40px;
+	line-height:40px;
+	color:#000;
+	font-size:20px;
+	font-weight:normal;
+	font-family:"微软雅黑";
+	overflow:hidden;
+}
+.artical i {
+	display:inline-block;
+	width:4px;
+	height:15px;
+	background:#c60000;
+	margin-right:6px;
+*vertical-align:middle;
+	_font-size:10px;
+}
+.report-list {
+	clear:both;
+}
+.report-list ul {
+	float:left;
+        padding-top: 40px;
+}
+.report-list ul li {
+	float:left;
+	width:865px;
+	background:url("../images/dot.png") no-repeat left top;
+	height:44px;
+	line-height:44px;
+	padding-left:20px;
+	border-bottom:1px dotted #e5e5e5;
+	overflow:hidden;
+        margin-left: 30px;
+}
+.report-list ul li span {
+	float:right;
+	padding-right:15px;
+	color:#999;
+}
+.report-list ul li a {
+	float:left;
+	color:#666;
+	font-size:14px;
+}
+.report-list ul li.hover {
+	background-color:#f9f9f9;
+}
+.report-list ul li.hover a {
+	color:#b20000;
+}
+.ui-page {
+    width: 100%;
+    text-align: center;
+}
+.ui-page {
+    width: 100%;
+    text-align: center;
+    /* margin-left: 30%; */
+    margin-top: 20px;
+}

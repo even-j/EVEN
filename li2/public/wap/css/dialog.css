@@ -1,0 +1,12 @@
+form{margin: 0;}
+form #message{font-size:14px;line-height: 24px;padding:8px 10px;margin-bottom: 10px;border-radius:3px;}
+form .tip{color:#666;background: #ff835f42;}
+form .err{color:red;background: #FEF0D0;}
+form .ok{color:#489C05;background: #FEF0D0;}
+form .text{border:1px solid #eee;padding:5px 5px;border-radius:3px;}
+form .submit{background: #ff835f;padding:5px 30px;color:#fff;margin-right:10px;border-radius:3px;cursor:pointer;border: 0}
+form .submit_gray{background: #DDD;padding:5px 30px;color:#333;margin-right:10px;border-radius:3px;cursor:pointer;border: 0}
+form .cancel{background: #DDD;padding:5px 30px;color:#333;border-radius:3px;cursor:pointer;border: 0}
+form .actions{padding:20px 5px;text-align: center;margin-top:20px;border-top: 1px solid #eee;}
+form th{height:39px;padding-left:28px;}
+form td{padding-left:10px;}

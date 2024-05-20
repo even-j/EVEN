@@ -1,0 +1,1 @@
+"c:\BtSoft\php\54\php.exe" "c:\peizi_xiniuhy\crontab.php" mcost day

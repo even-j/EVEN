@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+/*惠农团*/
+.income{color:#e44f48;font-size: 30px}
+.income small{font-size: 14px}
+.hnt-header{;position: relative;padding: 19px 0;}
+.hnt-header a{padding: 14px 15px;color: #999999;display: inline-block;margin-right: 15px}
+.hnt-header a.active{color: #e44f48;border-bottom: 2px solid #e44f48;font-weight: 700}
+.hnt-header .newbiao{width: 80px;height: 30px;background: url(/img/index_new2/newdetail-list-bg.png);padding: 0;text-align: center;line-height: 30px;color: #fff;margin-left: 15px}
+.hnt-list .hnt-item{background: #fff;float: left;margin-bottom: 10px}
+.hnt-item .a, .hnt-item .b, .hnt-item .c{float: left;height: 60px}
+
+.hnt-item .a{background: #fcfcfc;padding: 45px 30px;width: 210px;}
+.hnt-item .b{margin: 45px 0;padding-left: 40px;width: 179px;border-right: 1px solid #f5f5f5}
+.hnt-item .b.b2{margin: 45px 0;padding:0 30px;width: 159px !important}
+.hnt-item .c{margin: 45px 30px 0;width: 430px;}
+
+.hnt-title{color: #000 !important;font-size: 18px;}
+.hnt-item .hnt-title{position: relative;top: 3px}
+.hnt-item .a .ui-text{padding: 5px 4px;margin-left: 5px;float: left}
+
+.hnt-item p{margin-bottom: 10px;}
+.hnt-item span{color: #999}
+.hnt-item span.black0{margin-left: 20px}
+.hnt-item .radialindicator{margin-right: 15px}
+.hnt-item .c .btn{margin-top: 6px;width: 180px;height: 50px;line-height: 50px;float: right;}
+.hnt-item .c .btn.btn-primary{color: #fff}
+
+
+/*助农团*/
+.znt-choise{padding: 0 30px;background: #fff;margin-bottom: 20px;overflow: hidden;}
+.znt-choise .hnt-title{height: 60px;line-height: 70px;border-bottom: 1px solid #f5f5f5;}
+.znt-choise .options p{margin-bottom: 25px}
+.znt-choise .options span{color: #999}
+.znt-choise .options a{color: #333;margin-left: 40px}
+.znt-choise .options a:hover{color: #e44f48}
+.hnt-item .top{float:left;width:1140px;height: 40px;line-height: 40px;background: #fafafa;padding: 0 30px;}
+.hnt-item .top img{width: 30px;height: 30px;border-radius: 50%;}
+.hnt-item .top span{position: relative;top: 3px;margin-left: 5px;}
+.znt .hnt-item .a, .znt .hnt-item .b, .znt .hnt-item .c{border-right: 1px solid #f5f5f5;margin: 30px 0}
+.znt .hnt-item .a{background: #fff;padding: 0 0 0 30px;line-height: 60px;width: 239px;position: relative;}
+.znt .hnt-item .b{width: 169px}
+.znt .hnt-item .b2{padding: 0 0 0 30px;width: 189px !important;}
+.znt .hnt-item .b2 p{margin-bottom: 0}
+.znt .hnt-item .c{width: 400px;border-right:0;padding: 0 30px}
+
+.black0{color: #000 !important}
+.a.black0{font-size: 18px}
+.shuang11 .hnt-title{color: #fff !important}
+.shuang11 .grey-ui{color: #fff}
+.hnt-item.shuang11{background:url(/img/hnt/bg.png)}
+.shuang11 .a{background: none;position: relative;}
+.shuang11 .shuang11-logo{position: absolute;right: 30px;top: 24px;}
+span.shuang11-logo{width: 46px;height: 28px;line-height: 21px;background: url(/img/hnt/shuang11-logo2.png);display: inline-block;*display: inline;*zoom:1;color: #fff;font-size: 14px;text-align: center;font-weight: 400}
+span.shuang11-logo strong{font-weight: 700;color: #fff}

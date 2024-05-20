@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>待处理事项</title>
+    <link rel="stylesheet" href="/static/mobile/css/plugin.css" type="text/css">
+    <link rel="stylesheet" href="/static/mobile/css/iconfont/iconfont.css" type="text/css">
+    <link rel="stylesheet" href="/static/mobile/css/public.css" type="text/css">
+    <link rel="stylesheet" href="/static/mobile/css/page.css" type="text/css">
+
+    <script src="/static/mobile/js/all.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/static/mobile/js/jquery-1.12.4.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/static/mobile/js/vue-2.6.10.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/static/mobile/js/vant.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/static/mobile/js/muse-ui.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/static/mobile/js/public.js" type="text/javascript" charset="UTF-8"></script>
+    <script>
+        $(function () {
+            new Vue({
+                el: ".tfkz-container",
+                data: function () {
+                    return {
+                        /* 默认弹框不开启 */
+                        dialogVisible: false,
+                        /* 图片路径 */
+                        localFile: "",
+                        /* 数据1 */
+                        testData: [
+                            {volist name="product" id="vo"}
+                            {
+                                img2: "{$vo.pc_img}",//
+                                name2: "{$vo.name}",
+                                taskBianHao: "{$list.task_number}",
+                                time: "{$list.create_time}",
+                                type: "{$list.task_type}",
+                                maiHao: "{$list.wwid}",
+                                kuaiDi: "{$list.delivery}",
+                                danHao: "{$list.delivery_num}",
+                                price: "{$list.seller_principal}"
+                            },
+                            {/volist}
+                        ],
+                        /*任务ID*/
+                        task_id:"{$list.id}",
+                        // 弹框
+                        dialogVisible: false,
+                        // 图片临时路径
+                        fileList:[],
+                        // 图片base64路径
+                        localFile: "",
+                        // 提示内容
+                        alertNum:{$list.commission}
+                    };
+                },
+                    mixins:[singlePersonMixin],
+                filters: {
+                    setName: function (val) {
+                        if (val.length > 6) {
+                            return val.substr(0, 6) + "...";
+                        }
+                        return val;
+                    }
+                },
+                    methods:{
+                        slideBarClick:function(){
+                            var that = this;
+                            if(that.localFile.length===0) return alertError("请上传好评截图！");
+                            this.$dialog.confirm({
+                                title: "温馨提示",
+                                message: '商家确认返佣金额为:' + this.alertNum
+                            }).then(function () {
+                                var id={$list.id};
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{:url('mobile/task/confirm_refund')}",
+                                    async: true,
+                                    data: {
+                                        'id': id,"high_praise_img":that.localFile,
+                                    },
+                                    success: function (data) {
+                                        if (data.code == 1) {
+                                            alertSuccess(data.msg);
+                                            setTimeout(function () {
+                                                return location.href = data.url;
+                                            }, 3000);
+                                        } else {
+                                            return alertError(data.msg);
+                                        }
+                                    },
+                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                        alert(XMLHttpRequest.status + "," + textStatus);
+                                    }
+                                });
+                            }).catch(function () {})
+                        },
+                        // 阻止弹框默认关闭
+                        beforeClose: function (action, done) {
+                            if (action === "confirm") {
+                                done(false);
+                            } else {
+                                done();
+                            }
+                        },
+                        //复制文字
+                        copyText: function (text) {
+                            var oInput = document.createElement("input");
+                            oInput.value = text;
+                            document.body.appendChild(oInput);
+                            oInput.select(); // 选择对象
+                            document.execCommand("Copy"); // 执行浏览器复制命令
+                            oInput.className = "oInput";
+                            oInput.style.display = "none";
+                            alertSuccess("复制成功");
+                        },
+                        // 删除图片
+                        handleRemove:function (file) {
+                            this.localFile = "";
+                        },
+                        // 图片改变事件
+                        handleChange:function (file){
+                            this.localFile = file.content;
+                        },
+                    },
+                mounted: function () {
+                    publicFunction();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="tfkz-container">
+
+    <!-- 页面头部 -->
+    <div class="page-header">
+        <div class="arrow-left" onclick="javascript:history.back(-1);">
+            <van-icon class="arrow-left-item" name="arrow-left" />
+        </div>
+        <div class="page-title">待处理事项</div>
+        <div class="menu-box" >
+            <van-icon class="menu-box-item" name="bars" />
+        </div>
+    </div>
+
+    <!-- 下拉菜单 -->
+    {include file="public/left" /}
+
+    <!-- 滚动容器 -->
+    <div class="scroll-wrapper" style="padding-bottom: 1.6rem">
+        <!-- 公用tab标签 -->
+        <div class="public-tab-title">
+            <span class="active">待处理事项</span>
+        </div>
+        <div v-for="(item,index) in testData" :key="index">
+        <div class="processed">
+            <div class="processedList">
+                <div class="processedList-heng">
+                    <p>任务编号：{{item.taskBianHao}}</p>
+                </div>
+                <div class="processedList-tow">
+                    <p>任务类型：<b>{{item.type}}</b></p>
+                    <p>买号：<b>{{item.maiHao}}</b></p>
+                </div>
+                <div class="processedList-center">
+                    <img :src="item.img2" alt="">
+                    <div>
+                        <p>{{item.name2}}</p>
+                        <span>付款总金额：<b>{{item.price}}元</b></span>
+                    </div>
+                </div>
+                <div class="processedList-bottom">
+                    <p>接单时间：{{item.time}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="processed">
+            <div class="processedList">
+                <div class="processedList-tow">
+                    <p>快递：<b> {{item.kuaiDi}}</b></p>
+                    <p>快递单号：<b>{{item.danHao}}</b></p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+        <div class="task-detail">
+        <div class="public-card">
+            <div class="public-card-title">
+                <div class="public-card-title-one" style="color: red">好评</div>
+            </div>
+            <div class="pulic-card-content">
+                <div class="task-progress">
+                    <!-- 表格 -->
+                    <div class="public-table">
+                        <table>
+
+                            <tbody>
+
+                            {volist name="product" id="vo"}
+                            <tr>
+                                <td class="task-progress-img">
+                                    好评内容：
+                                </td>
+                                <td style="color: red"><span style="color: #333333">{$vo.text_praise}</span></td>
+
+                            </tr>
+                            {/volist}
+                            <tr>
+                                <td>图片</td>
+
+                                <td class="task-progress-img">
+                                    {volist name="$list['img_praise']" id="vo"}
+                                          <a href="{$vo}" download="{$vo}">   <img src="{$vo}" alt=""></a>
+                                    {/volist}
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td>视频</td>
+                                <td class="task-progress-video">
+                                    <video src="{$list['video_praise']}" controls="controls"><h1>您的浏览器不支持 video 视频</h1></video>
+                                </td>
+                                <td><a href="{$list['video_praise']}" download='视频'>下载</a></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="processedButton">
+            <van-button @click="dialogVisible = true">确认收货返款</van-button>
+        </div>
+    </div>
+
+    <!-- 上传图片弹框 -->
+    <van-dialog @confirm="slideBarClick" :before-close="beforeClose" v-model="dialogVisible" title="温馨提示" show-cancel-button>
+        <div class="zhuipin-task-upload">
+            <p>请上传好评截图：</p>
+            <van-uploader
+                    @delete="handleRemove"
+                    :after-read="handleChange"
+                    v-model="fileList"
+                    multiple
+                    :max-count="1"></van-uploader>
+        </div>
+    </van-dialog>
+
+
+    {include file="public/footer" /}

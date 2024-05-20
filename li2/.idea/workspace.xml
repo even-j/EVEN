@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b03a4114-21a7-4ba9-9f15-d84a9af85c0f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/demoBB/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/composer" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/demoBB/vendor/sebastian/exporter" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2bOVXPDIUy0mgybobi87UlmglWh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b03a4114-21a7-4ba9-9f15-d84a9af85c0f" name="Default Changelist" comment="" />
+      <created>1706086150132</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706086150132</updated>
+      <workItem from="1706086151558" duration="16462000" />
+      <workItem from="1706148414817" duration="1354000" />
+      <workItem from="1706151542314" duration="2117000" />
+      <workItem from="1706182019128" duration="652000" />
+      <workItem from="1706237192702" duration="2414000" />
+      <workItem from="1706254966650" duration="7667000" />
+      <workItem from="1706331962678" duration="1143000" />
+      <workItem from="1707111765025" duration="1059000" />
+      <workItem from="1707215157475" duration="8000" />
+      <workItem from="1707301844226" duration="658000" />
+      <workItem from="1707376430014" duration="1136000" />
+      <workItem from="1707572918410" duration="59000" />
+      <workItem from="1708684682047" duration="88000" />
+      <workItem from="1708684981932" duration="1647000" />
+      <workItem from="1710827889915" duration="5513000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="623" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1706266562999">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="623" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1706266562999" />
+    <state x="539" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1710829213183">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="539" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1710829213183" />
+  </component>
+</project>

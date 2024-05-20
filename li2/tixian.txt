@@ -1,0 +1,9 @@
+提现改动：
+user_bankcard  表
+card_no 长度改为  100（需要兼容虚拟币地址长度）
+新增字段type  默认1（1银行卡 2虚拟币）
+
+文件：
+apps/web/user.php
+Model/User/BankCard.php
+apps/web/template/user/bank_set.php

@@ -1,0 +1,46 @@
+/*---slide show skin---*/
+.edslider, .mySlideshow{position:relative;height: 350px;}
+.mySlideshow li{width:100%;height: 100%;position:absolute;top:0;left:0;background-repeat: no-repeat;background-position: center top;}
+.mySlideshow li.current{z-index:1 !important;}
+.mySlideshow li a{display: block;width: 100%;height: 100%}
+
+/*---controls---*/
+.edslider .controls{width: 100%;position:absolute;top: 0;z-index:2;}
+.edslider .controls .navigator{
+/*	background-image:url(../../images/dirct.png);*/
+	cursor:pointer;
+	display:block;
+	position: absolute;
+	top: 159px;
+	width:44px;
+	height:44px;
+}
+.edslider .controls .next{background-position:right 0;right: 0;}
+.edslider .controls .prev{background-position:-88px 0px;left: 0;}
+.edslider:hover .controls .next{background-position: -44px 0}
+.edslider:hover .controls .prev{background-position: 0 0}
+
+
+.edslider .controls .paginator{position: relative;top: 315px;text-align: center;}
+.edslider .controls .paginator li{
+	display:inline-block;
+	*zoom:1;  
+    *display:inline;
+	height:6px;
+	width:30px;
+	margin:0 4px;
+	background: #ffe0cb;
+	border-radius: 8px;
+	cursor:pointer;
+	transition: background .2s;
+}
+.edslider .controls .paginator li.current,
+.edslider .controls .paginator li:hover{background: #ff5d5b;}
+.edslider .progress{
+	position: absolute;
+	top: 0;
+	height:3px;
+	z-index:2;
+	background: rgba(255,255,255,.8);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#70000000', endColorstr='#70000000');
+}

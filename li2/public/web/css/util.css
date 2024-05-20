@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* public */
+
+.wrap{width:1190px; margin:0 auto;}
+.wrap2{width:1190px; margin:20px auto 0; background:#fff; overflow:hidden;}
+.wrap3{width:1190px;  margin:20px auto 40px; }
+.wrap4{width:1190px; background:none;}
+.wrap100{width:100%;}
+.wrapxf{width:1190px;margin:20px auto 40px; overflow: hidden;}
+.wrap_top{background:#fff;z-index:2;}
+.wrap-bottom {margin-bottom:-10px;}
+.hide{display:none;}
+a.blue{color:#0da0ec;}
+.radius{-webkit-border-radius:4px;border-radius:4px;}
+.post_re{position:relative;}
+.left,.fl{float:left;}
+.right,.fr{float:right;}
+.textorg{color:#f84202;}
+.textblue{color:#0da0ec;}
+.textblue:hover{color:#0da0ec;}
+.textmid{text-align:center;}
+.textleft{text-align:left;}
+.textright{text-align:right;}
+
+
+
+/* end public */
+

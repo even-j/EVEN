@@ -1,0 +1,13 @@
+2024-03-19 13:57:47	array (
+  'callback_url' => 'http://li2.net/paycallback_bobi.php',
+  'cp_order_id' => 'Z20240319135747164522',
+  'currency_id' => 1,
+  'mch_id' => '10994',
+  'money' => 111,
+  'show_name' => 'Z20240319135747164522',
+  'time' => 1710827867,
+  'sign' => 'a6617c64a522a8d5f87ec8234b31f9b7',
+)
+2024-03-19 13:57:52	array (
+  0 => false,
+)

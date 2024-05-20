@@ -1,0 +1,216 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace Model\Admin;
+
+/**
+ * Description of User
+ *
+ * @author Administrator
+ */
+class User {
+
+    //put your code here
+    /**
+     * 检测用户是否登录
+     * @return int
+     */
+    public static function checks() {
+        if(!isset($_SESSION)){
+            session_start();
+        }
+        $admin_id = isset($_SESSION['admin_id'])?$_SESSION['admin_id']:0;
+        
+        //$admin_id = \core\net\NCookie::get('admin_id');
+        if (!$admin_id) {
+            return 0;
+        }
+        $admin_pwd = isset($_SESSION['admin_pwd'])?$_SESSION['admin_pwd']:0;
+        //$admin_pwd = \core\net\NCookie::get('admin_pwd');
+        $key = 'adminuser_' . $admin_id;
+        $ip = \App::getonlineip(0);
+        $data = \Common\Cache::get($key);
+        //echo 'cookie_admin_pwd:'.$admin_pwd.'<br>';
+        //echo 'ip:'.$ip.'<br>';
+        //var_dump($data);
+        if($data){
+            //if ($admin_pwd == $data['pwd'] && $ip == $data['ip']) {
+            if ($admin_pwd == $data['pwd']) {
+                return $admin_id;
+            }
+        }
+        return 0;
+    }
+    
+     /**
+     * 获取管理员角色
+     * @return int
+     */
+    public static function getRoleId() {
+     if(!isset($_SESSION)){
+            session_start();
+        }
+        $role_id = isset($_SESSION['role_id'])?$_SESSION['role_id']:0;
+        if (!$role_id) {
+            return 0;
+        }
+        return $role_id;
+    }
+    /**
+     * 获得管理员信息
+     * @param type $admin_id
+     * @return type
+     */
+    public static function getinfo($admin_id){
+        $key = 'adminuser_' . $admin_id;
+        $user = \Common\Cache::get($key);
+        return $user;
+    }
+
+    /**
+     * 用户退出登陆
+     */
+    public static function logout(){
+        if(!isset($_SESSION)){
+            session_start();
+        }
+        $admin_id = isset($_SESSION['admin_id'])?$_SESSION['admin_id']:0;
+    	//$admin_id = \core\net\NCookie::get('admin_id');
+        $key = 'adminuser_' . $admin_id;
+        \Common\Cache::rm($key);
+        unset($_SESSION['admin_id']);
+        unset($_SESSION['role_id']);
+        unset($_SESSION['admin_pwd']);
+        //\core\net\NCookie::set('admin_id', 0);
+        //\core\net\NCookie::set('admin_pwd', '');
+    }
+    
+    /**
+     * 修改密码
+     * @param array $arr
+     * @return array
+     */
+    public static function changePassword($arr){
+    	$res = self::checkpwd($arr);
+    	$pwd = self::rands($arr['oldpwd'], $res['rand']);
+        if ($pwd['pwd'] != $res['pwd']) {
+        	 return array('code' => 0, 'msg' => '旧密码错误');
+        }else{
+        	$newpwd = self::rands($arr['pwd']);
+        	$uid = \Common\Query::update('admin_user', array('pwd'=>$newpwd['pwd'],'rand'=>$newpwd['rand']),array('admin_id'=>$arr['admin_id']));
+       		return array('code' => $uid, 'msg' => '密码修改成功');
+        }
+    }
+    
+	/**
+     * 修改用户信息
+     * @param array $arr
+     * @return array
+     */
+    public static function modifyAdmin($arr){
+        $data = \Common\Query::selone('admin_user', array('pwd' => $arr['pwd']));
+        if(!$data){//修改密码
+        	$newpwd = self::rands($arr['pwd']);
+        	$arr['pwd'] = $newpwd['pwd'];
+        	$arr['rand'] = $newpwd['rand'];
+        }
+        $uid = \Common\Query::update('admin_user', $arr,array('admin_id'=>$arr['admin_id']));
+       	return array('code' => $uid, 'msg' => '用户修改成功');
+    }
+    
+	/**
+     * 获取管理员用户信息
+     * @param array $arr
+     * @return array
+     */
+    public static function getAdminInfo($arr){
+       return \Common\Query::selone('admin_user', array('admin_id' => $arr['admin_id']));
+    }
+    
+	/**
+     * 删除管理员
+     * @param array $arr
+     * @return int 
+     */
+    public static function delAdmin($admin_id){
+       return \Common\Query::delete('admin_user', array('admin_id' => $admin_id));
+    }
+      
+    /**
+     * 管理员登录
+     * @param type $user
+     * @param type $pwd
+     * @return type
+     */
+    public static function login($user, $pwd) {
+        $arr = self::checkname($user);
+        if (!is_array($arr) || empty($arr)) {
+            return array('code' => 0, 'msg' => '用户名不存在');
+        }
+        $pwd = self::rands($pwd, $arr['rand']);
+        if ($pwd['pwd'] == $arr['pwd']) {
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['admin_id'] = $arr['admin_id'];
+            $_SESSION['role_id'] = $arr['role_id'];
+            //\core\net\NCookie::set('admin_id', $arr['admin_id']);
+            $pwdrand = substr(md5(time()), 1, 8);
+            $ip = \App::getonlineip(0);
+            $_SESSION['admin_pwd'] = $pwdrand;
+            //\core\net\NCookie::set('admin_pwd', $pwdrand);
+            $key = 'adminuser_' . $arr['admin_id'];
+            \Common\Cache::save($key, array('pwd' => $pwdrand, 'ip' => $ip,'user_name'=>$user));
+            return array('code' => $arr['admin_id'], 'msg' => '用户登录成功');
+        }
+        return array('code' => 0, 'msg' => '密码错误');
+    }
+    /**
+     * 添加管理员
+     * @param type $user
+     * @param type $pwd
+     * @return type
+     */
+    public static function adduser($arr) {
+        $narr = self::checkname($arr['user_name']);
+        if (!empty($narr)) {
+            return array('code' => 0, 'msg' => '用户名已经存在');
+        }
+        $pwd = self::rands($arr['pwd']);
+        $lastip = \App::getonlineip();
+        $inarr = array('rand' => $pwd['rand'], 'pwd' => $pwd['pwd'], 'lastip' => $lastip,'addtime'=>time());
+        $addarr = array_merge($inarr,$arr);
+        $uid = \Common\Query::insert('admin_user', $addarr);
+        return array('code' => $uid, 'msg' => '用户添加成功');
+    }
+
+ 	private static function checkpwd($arr) {
+        $arr = \Common\Query::selone('admin_user', array('admin_id' => $arr['admin_id']));
+        if (!is_array($arr) || empty($arr)) {
+            return array();
+        }
+        return $arr;
+    }
+    
+    public static function checkname($user_name) {
+        $arr = \Common\Query::selone('admin_user', array('user_name' => $user_name));
+        if (!is_array($arr) || empty($arr)) {
+            return array();
+        }
+        return $arr;
+    }
+
+    private static function rands($pwd, $rand = '') {
+        if (!$rand) {
+            $rand = rand(10000, 90000);
+        }
+        $pwd = md5(md5($pwd) . $rand);
+        return array('rand' => $rand, 'pwd' => $pwd);
+    }
+
+}

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
+<title><?php if (isset($title)) echo $title ?></title>
+<meta name="keywords" content="<?php if (isset($keywords)) echo $keywords ?>">
+<meta name="description" content="<?php if (isset($description)) echo $description ?>">
+<link rel="stylesheet" href="/public/wap/css/wap_style.css">
+<link rel="stylesheet" href="/public/wap/css/wap_new.css">
+<script src="/public/wap/js/jquery.js" type="text/javascript"></script>
+<script src="/public/wap/js/layer_mobile/layer.js" type="text/javascript"></script>
+<script src="/public/wap/js/common.js" type="text/javascript"></script>
+
+    </head>
+    <style>
+        <?php $params_ewm = \Model\Admin\Params::get('ewm');?>
+        body{ background: #FFFFFF ;}
+        .header { background: #79b4ff!important;}
+        .down_hd{ background-image: linear-gradient(120deg, #7eb5ff 0%, #51afff 100%); text-align: center; padding-top: 30px;}
+        .app_down_rwm{ position: relative;  background: url(public/wap/images/down/app_rwm.png) no-repeat center;  background-size: 350px;  margin: 0 auto;}
+        .app_down_rwm img{ width: 163px;  margin-top: 30px;}
+        .inputBox{ width: 86%; height: 40px; line-height: 40px; margin: 10px auto;border-radius: 3px;background: yellow;box-shadow:0 1px 5px rgb(71, 165, 255);}
+        .inputBox input{  border: none; background: #188cff; font-size: 16px; color: #ffffff; width: 175px;float: left;height: 36px; margin: 2px; padding-left: 5px;}
+        .inputBox button{ border: none; background: none; height: 40px; font-size: 14px; float: right; cursor:pointer;color:#fd5440;text-align: center;}
+        .down_hd p{font-size: 14px;color: #fff; line-height: 28px;text-align: left;padding:0 20px}
+        .ewm{width: 134px !important; margin: 10px auto; height: 134px;
+        background: url(<?php echo $params_ewm['peiziapp_path'];?>) no-repeat; background-size: 100%;}
+        .shuoming{ line-height: 25px; padding: 15px;}
+        .shuoming p{ color: #776f6f; font-size: 14px; padding-top: 10px}
+        .shuoming p span{ background:url(public/wap/images/down/nub.png) no-repeat ; width: 44px; height: 18px; float: left; font-size: 14px; color: #fff; margin-right: 5px; display: block; text-align: center;background-size: 45px;
+    line-height: 19px;}
+        .shuoming h4{ color: #51afff; font-size: 16px; text-align: center;}
+        .shuoming img{ text-align: center;  display: block; padding: 10px 0; margin: 0 auto;}
+        .down_bt{display: block;background: #fbfe14;line-height: 40px;font-size: 16px;text-align: center;color:#fd5440;width: 80%;font-weight: bold;margin: 15px auto;border-radius: 3px;}
+     	.adown_btn{ width: 86%; height: 40px; line-height: 40px; background:#ffff00; border-radius: 3px; color: #ea8d00; font-size: 16px; text-align: center; border: 0px;display: block;
+    margin: 10px auto;box-shadow: 0 1px 5px rgb(71, 165, 255); font-weight: bold;}
+     </style>
+    <body> 
+        <div class="header">
+            <h1>APP下载</h1>
+            <a class="l-link" href="javascript:history.go(-1)"><span>返回</span></a> 
+            <div class="top-menu">
+                <!--<button type="button" class="btn"></button>-->
+            </div>
+        </div>
+        <div style="height:40px;"></div>
+        <div class="down_hd">
+            <img src="public/wap/images/down/app_text_02.png" width="40%" style="margin-bottom:10px"/>
+        	<!-- <p>第一种方式:(如果在浏览器中打开此页面，点击下面按钮下载)</p>
+                <a href="<?php echo $params_ewm['peiziapp_url'];?>" class="adown_btn">点击下载APP</a> -->
+        	<p>第一种方式:(如果在微信打开此页面，复制链接在浏览器中打开下载)</p>
+                <div class="inputBox df">
+        		<input type="" name="" id="inp_url" value="<?php echo $params_ewm['peiziapp_url'];?>" />        		
+        		<button type="" id="btn_down" value="" class="df_1">复制链接</button>
+        	</div>
+                <p>第二种方式:(扫描二维码下载)</p>
+                <div class="ewm"></div>
+                
+        	<img src="public/wap/images/down/app_yun.png" width="100%"/>
+        </div>
+        
+        <div class="shuoming">
+        	<h4>《苹果手机添加信任操作说明》</h4>
+        	<p><span>1</span>点击“华亿配资”弹出下面对话框！</p>
+        	<img src="public/wap/images/down/p01.png?v=1" width="90%"/>        	
+        	<p><span>2</span>点击“设置”！</p>
+        	<img src="public/wap/images/down/p02.png?v=1" width="90%"/>
+        	<p><span>3</span>点击“通用”！</p>
+        	<img src="public/wap/images/down/p03.png?v=1" width="90%"/>
+        	<p><span>4</span>点击“设备管理”！</p>
+        	<img src="public/wap/images/down/p04.png?v=1" width="90%"/>
+        	<p><span>5</span>点击“企业级应用”-“...”！</p>
+        	<img src="public/wap/images/down/p05.png?v=1" width="90%"/>
+        	<p><span>6</span>点击“信任...”！</p>
+        	<img src="public/wap/images/down/p06.png?v=1" width="90%"/>
+        	<p><span>7</span>点击“信任”</p>
+        	<img src="public/wap/images/down/p07.png?v=1" width="90%"/>
+                <p><span>8</span>完成操作，可以正常使用“华亿配资”了！</p>
+        </div>
+        <script src="/public/wap/js/clipboard.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+                var text = $("#inp_url").val();
+                var clipboard = new Clipboard('#btn_down', {
+                    text: function() {
+                        return text;
+                    }
+                });
+
+                clipboard.on('success', function(e) {
+                    layermsg('复制成功');
+                });
+            })
+        </script>
+
+    </body>
+    
+</html>
